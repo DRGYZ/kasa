@@ -16,6 +16,7 @@ export default function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/housing/:id" element={<Housing />} />
+        <Route path="/404" element={<Error />} />
         <Route path="*" element={<Error />} />
       </Routes>
 
