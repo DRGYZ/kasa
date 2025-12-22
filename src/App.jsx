@@ -1,5 +1,5 @@
-function App() {
-  return <h1>Kasa project is alive 🏠🔥</h1>
-}
+import AppRouter from "./router/AppRouter"
 
-export default App
+export default function App() {
+  return <AppRouter />
+}
