@@ -1,0 +1,12 @@
+@use "../utils/variables" as *;
+
+.rating {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.rating__star {
+  color: $color-primary;
+  font-size: 22px;
+  margin-left: 4px;
+}

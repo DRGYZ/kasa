@@ -1,0 +1,23 @@
+@use "../utils/variables" as *;
+
+.host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.host__name {
+  margin: 0;
+  color: $color-primary;
+  font-weight: 500;
+  text-align: right;
+  max-width: 120px;
+}
+
+.host__img {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+}

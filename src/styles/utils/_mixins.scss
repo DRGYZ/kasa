@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+@mixin container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+@mixin flex($justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}

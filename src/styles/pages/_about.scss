@@ -1,0 +1,9 @@
+@use "../utils/mixins" as *;
+
+.about__collapses {
+  @include container;
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+  max-width: 1024px;
+}

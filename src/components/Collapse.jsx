@@ -5,21 +5,21 @@ export default function Collapse({ title, children }) {
   const contentId = useId()
 
   return (
-    <section>
+    <section className={`collapse ${isOpen ? "is-open" : ""}`}>
       <button
+        className="collapse__header"
         type="button"
         onClick={() => setIsOpen((v) => !v)}
         aria-expanded={isOpen}
         aria-controls={contentId}
       >
-        {title} {isOpen ? "▲" : "▼"}
+        <span className="collapse__title">{title}</span>
+        <span className="collapse__icon" aria-hidden="true">⌄</span>
       </button>
 
-      {isOpen && (
-        <div id={contentId}>
-          {children}
-        </div>
-      )}
+      <div className="collapse__content" id={contentId}>
+        <div className="collapse__inner">{children}</div>
+      </div>
     </section>
   )
 }

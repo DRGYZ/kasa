@@ -4,7 +4,7 @@ export default function About() {
   return (
     <main>
       <h1>About</h1>
-
+      <div className="about__collapses">
       <Collapse title="Fiabilité">
         <p>Les annonces postées sur Kasa garantissent une fiabilité totale.</p>
       </Collapse>
@@ -20,6 +20,7 @@ export default function About() {
       <Collapse title="Sécurité">
         <p>La sécurité est la priorité de Kasa.</p>
       </Collapse>
+      </div>
     </main>
   )
 }

@@ -1,8 +1,8 @@
 export default function Tags({ tags = [] }) {
   return (
-    <ul>
+    <ul className="tags">
       {tags.map((tag) => (
-        <li key={tag}>{tag}</li>
+        <li className="tags__item" key={tag}>{tag}</li>
       ))}
     </ul>
   )

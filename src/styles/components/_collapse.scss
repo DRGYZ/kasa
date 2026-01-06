@@ -1,0 +1,62 @@
+@use "../utils/variables" as *;
+
+.collapse {
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.collapse__header {
+  width: 100%;
+  border: 0;
+  background: $color-primary;
+  color: $color-white;
+  padding: 12px 16px;
+  border-radius: $radius-md;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.collapse__icon {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.collapse__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 250ms ease;
+}
+
+.collapse__inner {
+  background: $color-gray;
+  padding: 16px;
+  color: $color-black;
+}
+
+/* Open state */
+.collapse.is-open {
+  .collapse__icon {
+    transform: rotate(180deg);
+  }
+
+  .collapse__content {
+    max-height: 500px; // enough for Kasa content
+  }
+}
+
+@media (max-width: 768px) {
+  .collapse__header {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .collapse__inner {
+    padding: 14px;
+  }
+}

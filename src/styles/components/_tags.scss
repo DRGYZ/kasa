@@ -1,0 +1,19 @@
+@use "../utils/variables" as *;
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags__item {
+  background: $color-primary;
+  color: $color-white;
+  padding: 5px 18px;
+  border-radius: $radius-md;
+  font-size: 14px;
+  font-weight: 700;
+}

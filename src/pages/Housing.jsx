@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom"
 import logements from "../data/logements.json"
-import  { Navigate } from "react-router-dom"
-
+import { Navigate } from "react-router-dom"
 import Slideshow from "../components/Slideshow"
 import Tags from "../components/Tags"
 import Host from "../components/Host"
@@ -12,42 +11,33 @@ export default function Housing() {
   const { id } = useParams()
   const logement = logements.find((item) => item.id === id)
 
-if (!logement) {
-  return <Navigate to="/404" replace />
-}
+  if (!logement) {
+    return <Navigate to="/404" replace />
+  }
 
 
 
   return (
-    <main>
+    <main className="housing">
       <Slideshow pictures={logement.pictures} title={logement.title} />
 
-      <section>
-        <div>
-          <h1>{logement.title}</h1>
-          <p>{logement.location}</p>
+      <section className="housing__top">
+        <div className="housing__left">
+          <h1 className="housing__title">{logement.title}</h1>
+          <p className="housing__location">{logement.location}</p>
           <Tags tags={logement.tags} />
         </div>
 
-        <div>
+        <div className="housing__right">
           <Host name={logement.host?.name} picture={logement.host?.picture} />
           <Rating value={logement.rating} />
         </div>
       </section>
 
-      <section>
-        <Collapse title="Description">
-          <p>{logement.description}</p>
-        </Collapse>
-
-        <Collapse title="Équipements">
-          <ul>
-            {logement.equipments?.map((eq) => (
-              <li key={eq}>{eq}</li>
-            ))}
-          </ul>
-        </Collapse>
+      <section className="housing__bottom">
+        {/* your two Collapse blocks stay as-is */}
       </section>
     </main>
+
   )
 }

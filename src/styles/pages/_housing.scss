@@ -1,0 +1,57 @@
+@use "../utils/variables" as *;
+
+.housing__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.housing__title {
+  margin: 0;
+  color: $color-primary;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.housing__location {
+  margin: 6px 0 0;
+  font-size: 18px;
+}
+
+.housing__right {
+  min-width: 220px;
+}
+
+.housing__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .housing__top {
+    flex-direction: column;
+  }
+
+  .housing__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: auto;
+  }
+
+  .rating {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .housing__bottom {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .housing__title { font-size: 24px; }
+  .housing__location { font-size: 16px; }
+}

@@ -1,0 +1,34 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.banner {
+  @include container;
+  position: relative;
+  height: 223px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  background-image: url("/images/banner.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.banner__title {
+  position: relative;
+  margin: 0;
+  padding: 0 30px;
+  color: $color-white;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+}

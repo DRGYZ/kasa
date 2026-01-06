@@ -1,0 +1,24 @@
+@use "./utils/variables" as *;
+@use "./utils/mixins" as *;
+@use "./base/reset";
+@use "./base/typography";
+@use "./components/header";
+@use "./components/footer";
+@use "./components/banner";
+@use "./components/card";
+@use "./pages/home";
+@use "./components/slideshow";
+@use "./components/tags";
+@use "./components/host";
+@use "./components/rating";
+@use "./pages/housing";
+@use "./components/collapse";
+@use "./pages/about";
+
+
+// Small global helpers
+main {
+  @include container;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}

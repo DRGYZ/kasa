@@ -1,0 +1,30 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.header {
+  @include container;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.header__inner {
+  @include flex(space-between, center, 0);
+}
+
+.header__logo {
+  margin: 0;
+  color: $color-primary;
+  font-weight: 700;
+}
+
+.header__nav {
+  @include flex(flex-end, center, 40px);
+
+  a {
+    font-weight: 500;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
