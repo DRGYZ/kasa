@@ -4,10 +4,11 @@
 .banner {
   @include container;
   position: relative;
-  height: 223px;
+  height: 180px;
   border-radius: $radius-lg;
   overflow: hidden;
-
+  justify-content: center;
+  text-align: center;
   background-image: url("/images/banner.jpg");
   background-size: cover;
   background-position: center;
@@ -28,7 +29,7 @@
   margin: 0;
   padding: 0 30px;
   color: $color-white;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 34px;
+  font-weight: 500;
   line-height: 1.1;
 }

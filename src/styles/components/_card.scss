@@ -2,8 +2,8 @@
 
 .card {
   display: block;
-  height: 340px;
-  border-radius: $radius-md;
+  height: 300px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -32,12 +32,12 @@
 
 .card__title {
   position: absolute;
-  left: 20px;
+  left: 16px;
   right: 20px;
-  bottom: 20px;
+  bottom: 16px;
   margin: 0;
   color: $color-white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   z-index: 1;
 }

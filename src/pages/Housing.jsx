@@ -35,7 +35,17 @@ export default function Housing() {
       </section>
 
       <section className="housing__bottom">
-        {/* your two Collapse blocks stay as-is */}
+        <Collapse title="Description">
+          <p>{logement.description}</p>
+        </Collapse>
+
+        <Collapse title="Équipements">
+          <ul>
+            {logement.equipments?.map((equipment) => (
+              <li key={equipment}>{equipment}</li>
+            ))}
+          </ul>
+        </Collapse>
       </section>
     </main>
 
