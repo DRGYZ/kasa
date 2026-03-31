@@ -1,11 +1,12 @@
 import { NavLink, Link } from "react-router-dom"
+import { assetPath } from "../utils/assetPath"
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header__inner">
         <Link to="/" className="header__brand" aria-label="Accueil Kasa">
-          <img className="header__logo" src="/images/logo.png" alt="Kasa" />
+          <img className="header__logo" src={assetPath("images/logo.png")} alt="Kasa" />
         </Link>
 
         <nav className="header__nav">

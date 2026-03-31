@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
@@ -9,7 +9,7 @@ import Error from "../pages/Error"
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
 
       <Routes>
@@ -21,6 +21,6 @@ export default function AppRouter() {
       </Routes>
 
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   )
 }

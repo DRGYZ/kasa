@@ -24,7 +24,7 @@ export default function About() {
   return (
     <main className="about">
       <h1 className="visually-hidden">À propos de Kasa</h1>
-      <Banner className="banner--about" image="/images/about-banner.jpg" />
+      <Banner className="banner--about" image="images/about-banner.jpg" />
 
       <div className="about__collapses">
         {ABOUT_SECTIONS.map((section) => (
