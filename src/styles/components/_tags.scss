@@ -17,3 +17,16 @@
   font-size: 14px;
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  .tags {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .tags__item {
+    padding: 3px 14px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+}

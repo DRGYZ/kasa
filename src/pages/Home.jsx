@@ -5,7 +5,7 @@ import logements from "../data/logements.json"
 export default function Home() {
   return (
     <main className="home">
-      <Banner title="Chez vous, partout et ailleurs" />
+      <Banner className="banner--home" title="Chez vous, partout et ailleurs" />
 
       <section className="home__grid">
         {logements.map((item) => (

@@ -21,3 +21,20 @@
   border-radius: 999px;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .host {
+    gap: 10px;
+  }
+
+  .host__name {
+    max-width: 93px;
+    font-size: 12px;
+    line-height: 1.43;
+  }
+
+  .host__img {
+    width: 32px;
+    height: 32px;
+  }
+}

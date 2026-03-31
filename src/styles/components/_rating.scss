@@ -10,3 +10,19 @@
   font-size: 22px;
   margin-left: 4px;
 }
+
+@media (max-width: 768px) {
+  .rating {
+    margin-top: 0;
+  }
+
+  .rating__star {
+    font-size: 18px;
+    margin-left: 0;
+    margin-right: 4px;
+  }
+
+  .rating__star:last-child {
+    margin-right: 0;
+  }
+}

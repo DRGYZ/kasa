@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__inner">
-        <Link to="/" className="header__brand" aria-label="Kasa home">
+        <Link to="/" className="header__brand" aria-label="Accueil Kasa">
           <img className="header__logo" src="/images/logo.png" alt="Kasa" />
         </Link>
 
@@ -13,7 +13,7 @@ export default function Header() {
             Accueil
           </NavLink>
           <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
-            A propos
+            A Propos
           </NavLink>
         </nav>
       </div>

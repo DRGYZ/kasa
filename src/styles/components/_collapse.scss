@@ -28,12 +28,13 @@
 }
 
 .collapse__content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 250ms ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease;
 }
 
 .collapse__inner {
+  overflow: hidden;
   background: $color-gray;
   padding: 16px;
   color: $color-black;
@@ -46,14 +47,19 @@
   }
 
   .collapse__content {
-    max-height: 500px; // enough for Kasa content
+    grid-template-rows: 1fr;
   }
 }
 
 @media (max-width: 768px) {
   .collapse__header {
-    font-size: 16px;
+    font-size: 13px;
     padding: 10px 12px;
+  }
+
+  .collapse__icon {
+    font-size: 18px;
+    line-height: 1;
   }
 
   .collapse__inner {

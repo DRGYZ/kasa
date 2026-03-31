@@ -3,13 +3,13 @@
 
 .banner {
   @include container;
+  width: 100%;
   position: relative;
-  height: 180px;
+  min-height: 223px;
   border-radius: $radius-lg;
   overflow: hidden;
   justify-content: center;
   text-align: center;
-  background-image: url("/images/banner.jpg");
   background-size: cover;
   background-position: center;
 
@@ -29,7 +29,34 @@
   margin: 0;
   padding: 0 30px;
   color: $color-white;
-  font-size: 34px;
+  font-size: 42px;
   font-weight: 500;
   line-height: 1.1;
+}
+
+.banner--about {
+  min-height: 223px;
+  background-position: center 42%;
+}
+
+.banner--about::before {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    min-height: 111px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .banner__title {
+    font-size: 24px;
+    padding: 0 16px;
+  }
+
+  .banner--about {
+    min-height: 111px;
+    background-position: center 45%;
+  }
 }

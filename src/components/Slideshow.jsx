@@ -6,6 +6,7 @@ export default function Slideshow({ pictures = [], title = "" }) {
 
   if (total === 0) return null
 
+  const currentIndex = index >= total ? 0 : index
   const goPrev = () => setIndex((i) => (i === 0 ? total - 1 : i - 1))
   const goNext = () => setIndex((i) => (i === total - 1 ? 0 : i + 1))
   const showControls = total > 1
@@ -14,22 +15,22 @@ export default function Slideshow({ pictures = [], title = "" }) {
     <section className="slideshow">
       <img
         className="slideshow__img"
-        src={pictures[index]}
-        alt={`${title} - ${index + 1}`}
+        src={pictures[currentIndex]}
+        alt={`${title} - ${currentIndex + 1}`}
       />
 
       {showControls && (
         <>
-          <button className="slideshow__btn slideshow__btn--prev" type="button" onClick={goPrev} aria-label="Previous image">
+          <button className="slideshow__btn slideshow__btn--prev" type="button" onClick={goPrev} aria-label="Image précédente">
             ‹
           </button>
 
-          <button className="slideshow__btn slideshow__btn--next" type="button" onClick={goNext} aria-label="Next image">
+          <button className="slideshow__btn slideshow__btn--next" type="button" onClick={goNext} aria-label="Image suivante">
             ›
           </button>
 
           <p className="slideshow__count">
-            {index + 1}/{total}
+            {currentIndex + 1}/{total}
           </p>
         </>
       )}

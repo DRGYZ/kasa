@@ -3,8 +3,14 @@
 .housing__top {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 30px;
   margin-top: 20px;
+}
+
+.housing__left {
+  flex: 1;
+  min-width: 0;
 }
 
 .housing__title {
@@ -20,6 +26,9 @@
 }
 
 .housing__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   min-width: 220px;
 }
 
@@ -33,13 +42,21 @@
 @media (max-width: 768px) {
   .housing__top {
     flex-direction: column;
+    gap: 16px;
+    margin-top: 15px;
+  }
+
+  .housing__left {
+    width: 100%;
   }
 
   .housing__right {
     display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    min-width: auto;
+    min-width: 0;
   }
 
   .rating {
@@ -48,10 +65,19 @@
   }
 
   .housing__bottom {
+    margin-top: 20px;
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .housing__title { font-size: 24px; }
-  .housing__location { font-size: 16px; }
+  .housing__title {
+    font-size: 18px;
+    line-height: 1.43;
+  }
+
+  .housing__location {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.43;
+  }
 }

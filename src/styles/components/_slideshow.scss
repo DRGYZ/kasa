@@ -40,7 +40,18 @@
 }
 
 @media (max-width: 768px) {
-  .slideshow { height: 255px; }
-  .slideshow__btn { font-size: 48px; }
+  .slideshow {
+    height: 255px;
+    border-radius: 10px;
+  }
+
+  .slideshow__btn {
+    font-size: 32px;
+    padding: 0 6px;
+  }
+
+  .slideshow__btn--prev { left: 6px; }
+  .slideshow__btn--next { right: 6px; }
+
   .slideshow__count { display: none; }
 }

@@ -15,17 +15,29 @@ export default function Housing() {
     return <Navigate to="/404" replace />
   }
 
+  const locationSeparatorIndex = logement.location.lastIndexOf(" - ")
+  const locationLabel =
+    locationSeparatorIndex === -1
+      ? logement.location
+      : logement.location.slice(0, locationSeparatorIndex)
+  const locationTag =
+    locationSeparatorIndex === -1
+      ? null
+      : logement.location.slice(locationSeparatorIndex + 3)
+  const housingTags = locationTag
+    ? [...new Set([...logement.tags, locationTag])]
+    : logement.tags
 
 
   return (
     <main className="housing">
-      <Slideshow pictures={logement.pictures} title={logement.title} />
+      <Slideshow key={logement.id} pictures={logement.pictures} title={logement.title} />
 
       <section className="housing__top">
         <div className="housing__left">
           <h1 className="housing__title">{logement.title}</h1>
-          <p className="housing__location">{logement.location}</p>
-          <Tags tags={logement.tags} />
+          <p className="housing__location">{locationLabel}</p>
+          <Tags tags={housingTags} />
         </div>
 
         <div className="housing__right">
