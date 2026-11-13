@@ -29,8 +29,11 @@ export default function Slideshow({ pictures = [], title = "" }) {
             ›
           </button>
 
-          <p className="slideshow__count">
+          <p className="slideshow__count" aria-hidden="true">
             {currentIndex + 1}/{total}
+          </p>
+          <p className="visually-hidden" role="status">
+            Image {currentIndex + 1} sur {total}
           </p>
         </>
       )}

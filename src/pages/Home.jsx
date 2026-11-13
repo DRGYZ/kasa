@@ -8,12 +8,13 @@ export default function Home() {
       <Banner className="banner--home" title="Chez vous, partout et ailleurs" />
 
       <section className="home__grid">
-        {logements.map((item) => (
+        {logements.map((item, index) => (
           <HousingCard
             key={item.id}
             id={item.id}
             title={item.title}
             cover={item.cover}
+            loading={index < 3 ? "eager" : "lazy"}
           />
         ))}
       </section>

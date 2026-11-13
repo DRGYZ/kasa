@@ -10,11 +10,20 @@
   overflow: hidden;
   justify-content: center;
   text-align: center;
-  background-size: cover;
-  background-position: center;
 
   display: flex;
   align-items: center;
+}
+
+.banner__media {
+  position: absolute;
+  inset: 0;
+}
+
+.banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .banner::before {
@@ -22,21 +31,18 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 .banner__title {
   position: relative;
+  z-index: 1;
   margin: 0;
   padding: 0 30px;
   color: $color-white;
   font-size: 42px;
   font-weight: 500;
   line-height: 1.1;
-}
-
-.banner--about {
-  min-height: 223px;
-  background-position: center 42%;
 }
 
 .banner--about::before {
@@ -53,10 +59,5 @@
   .banner__title {
     font-size: 24px;
     padding: 0 16px;
-  }
-
-  .banner--about {
-    min-height: 111px;
-    background-position: center 45%;
   }
 }
