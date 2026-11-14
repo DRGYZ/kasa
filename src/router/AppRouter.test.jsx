@@ -31,6 +31,32 @@ function galleryButton(label) {
   return container.querySelector(`button[aria-label="${label}"]`)
 }
 
+function findButtonByText(selector, label) {
+  return [...container.querySelectorAll(selector)].find((btn) =>
+    btn.textContent.includes(label),
+  )
+}
+
+describe("Page d'accueil et comparaison", () => {
+  it("filtre les annonces par secteur et compare les pièces sur la carte", async () => {
+    await visit("/")
+    expect(container.querySelectorAll(".dir-a-card")).toHaveLength(20)
+
+    act(() => findButtonByText(".filter-pill", "Paris Rive Gauche").click())
+    expect(container.querySelectorAll(".dir-a-card")).toHaveLength(4)
+
+    act(() => findButtonByText(".filter-pill", "Tous").click())
+    expect(container.querySelectorAll(".dir-a-card")).toHaveLength(20)
+
+    const listing = logements.find(({ pictures }) => pictures.length > 1)
+    const firstCardLead = container.querySelector(".dir-a-card .triptych__lead img")
+    expect(firstCardLead.getAttribute("src")).toBe(listing.pictures[0])
+
+    act(() => galleryButton(`Comparer la photo 2 de ${listing.title}`).click())
+    expect(firstCardLead.getAttribute("src")).toBe(listing.pictures[1])
+  })
+})
+
 describe("Fiche logement", () => {
   it("revient à la dernière photo puis à la première", async () => {
     const listing = logements.find(({ pictures }) => pictures.length > 1)
@@ -46,6 +72,23 @@ describe("Fiche logement", () => {
 
     act(() => galleryButton("Image suivante").click())
     expect(photo.getAttribute("src")).toBe(listing.pictures[0])
+  })
+
+  it("saute à une miniature et replie/déplie Description", async () => {
+    const listing = logements.find(({ pictures }) => pictures.length > 2)
+    await visit(`/housing/${listing.id}`)
+    const photo = container.querySelector(".slideshow img")
+
+    act(() => galleryButton(`Afficher la photo 2 sur ${listing.pictures.length}`).click())
+    expect(photo.getAttribute("src")).toBe(listing.pictures[1])
+    expect(container.querySelector('[role="status"]').textContent).toBe(
+      `Image 2 sur ${listing.pictures.length}`,
+    )
+
+    const descToggle = findButtonByText(".collapse__header", "Description")
+    expect(descToggle.getAttribute("aria-expanded")).toBe("true")
+    act(() => descToggle.click())
+    expect(descToggle.getAttribute("aria-expanded")).toBe("false")
   })
 
   it("masque la navigation pour une seule photo", async () => {

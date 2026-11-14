@@ -3,23 +3,35 @@
 .host {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 12px;
+  min-width: 0;
+}
+
+.host__info {
+  text-align: right;
+  min-width: 0;
 }
 
 .host__name {
   margin: 0;
-  color: $color-primary;
-  font-weight: 500;
-  text-align: right;
-  max-width: 120px;
+  font-size: 15px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.host__role {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: $ink-soft;
 }
 
 .host__img {
-  width: 64px;
-  height: 64px;
+  width: 52px;
+  height: 52px;
   border-radius: 999px;
   object-fit: cover;
+  border: 2px solid $border;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -27,14 +39,8 @@
     gap: 10px;
   }
 
-  .host__name {
-    max-width: 93px;
-    font-size: 12px;
-    line-height: 1.43;
-  }
-
   .host__img {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
   }
 }

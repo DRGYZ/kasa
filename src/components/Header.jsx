@@ -7,14 +7,15 @@ export default function Header() {
       <div className="header__inner">
         <Link to="/" className="header__brand" aria-label="Accueil Kasa">
           <img className="header__logo" src={assetPath("images/logo.png")} alt="Kasa" />
+          <span className="header__tag">Paris &amp; Île-de-France</span>
         </Link>
 
-        <nav className="header__nav">
+        <nav className="header__nav" aria-label="Navigation principale">
           <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
             Accueil
           </NavLink>
           <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
-            A Propos
+            À propos
           </NavLink>
         </nav>
       </div>

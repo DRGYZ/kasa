@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom"
+import { Link, Navigate, useParams } from "react-router-dom"
 import logements from "../data/logements.json"
-import { Navigate } from "react-router-dom"
 import Slideshow from "../components/Slideshow"
 import Tags from "../components/Tags"
 import Host from "../components/Host"
 import Rating from "../components/Rating"
 import Collapse from "../components/Collapse"
+import { parseLocation } from "../utils/location"
 
 export default function Housing() {
   const { id } = useParams()
@@ -15,51 +15,57 @@ export default function Housing() {
     return <Navigate to="/404" replace />
   }
 
-  const locationSeparatorIndex = logement.location.lastIndexOf(" - ")
-  const locationLabel =
-    locationSeparatorIndex === -1
-      ? logement.location
-      : logement.location.slice(0, locationSeparatorIndex)
-  const locationTag =
-    locationSeparatorIndex === -1
-      ? null
-      : logement.location.slice(locationSeparatorIndex + 3)
+  const { label: locationLabel, area: locationTag } = parseLocation(logement.location)
   const housingTags = locationTag
     ? [...new Set([...logement.tags, locationTag])]
     : logement.tags
-
+  const equipments = logement.equipments || []
 
   return (
     <main className="housing">
+      <Link to="/" className="detail-crumb">
+        <span>← Retour aux annonces</span>
+        {locationTag ? <span className="detail-crumb__route">{locationTag}</span> : null}
+      </Link>
+
       <Slideshow key={logement.id} pictures={logement.pictures} title={logement.title} />
 
-      <section className="housing__top">
-        <div className="housing__left">
+      <section className="housing__top detail-a__header">
+        <div className="housing__left detail-a__main-meta">
           <h1 className="housing__title">{logement.title}</h1>
-          <p className="housing__location">{locationLabel}</p>
+          <p className="housing__location">
+            {locationLabel}
+            {locationTag ? ` · ${locationTag}` : ""}
+          </p>
           <Tags tags={housingTags} />
         </div>
 
-        <div className="housing__right">
+        <div className="housing__right detail-a__host-box">
           <Host name={logement.host?.name} picture={logement.host?.picture} />
           <Rating value={logement.rating} />
         </div>
       </section>
 
-      <section className="housing__bottom">
-        <Collapse title="Description">
+      <section className="housing__bottom detail-a__panels">
+        <Collapse title="Description" badge="Logement" defaultOpen={true}>
           <p>{logement.description}</p>
         </Collapse>
 
-        <Collapse title="Équipements">
-          <ul>
-            {logement.equipments?.map((equipment) => (
-              <li key={equipment}>{equipment}</li>
+        <Collapse
+          title="Équipements"
+          badge={`${equipments.length} inclus`}
+          defaultOpen={true}
+        >
+          <ul className="amenity-list">
+            {equipments.map((equipment) => (
+              <li key={equipment} className="amenity-list__item">
+                <span className="amenity-list__check" aria-hidden="true">✓</span>
+                <span>{equipment}</span>
+              </li>
             ))}
           </ul>
         </Collapse>
       </section>
     </main>
-
   )
 }

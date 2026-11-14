@@ -1,8 +1,13 @@
 @use "../utils/variables" as *;
 
 body {
-  font-family: "Montserrat", sans-serif;
-  color: $color-black;
+  font-family: $font-sans;
+  background: $bg-page;
+  color: $ink;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
