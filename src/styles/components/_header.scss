@@ -2,57 +2,88 @@
 @use "../utils/mixins" as *;
 
 .header {
-  @include container;
   width: 100%;
-  padding-top: 40px;
-  padding-right: 0;
-  padding-bottom: 40px;
-  padding-left: 0;
+  background: $bg-surface;
+  border-bottom: 1px solid $border;
 }
 
 .header__inner {
-  @include flex(space-between, center, 0);
+  @include container;
+  @include flex(space-between, center, 20px);
   width: 100%;
+  height: 68px;
 }
 
 .header__brand {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .header__logo {
-  height: 61px;
+  height: 36px;
   width: auto;
   display: block;
 }
 
+.header__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: $radius-pill;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: $bg-subtle;
+  color: $ink-muted;
+  border: 1px solid $border;
+}
+
 .header__nav {
-  @include flex(flex-end, center, 52px);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.426;
+  @include flex(flex-end, center, 8px);
 
   a {
+    padding: 8px 14px;
+    border-radius: $radius-pill;
+    font-size: 14px;
+    font-weight: 600;
+    color: $ink-muted;
+    transition: background-color 140ms ease, color 140ms ease;
+
+    &:hover {
+      background: $bg-subtle;
+      color: $ink;
+    }
+
     &.active {
-      text-decoration: underline;
+      background: $accent-soft;
+      color: $accent-ink;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
+  .header__inner {
+    height: 58px;
+    gap: 12px;
   }
 
   .header__logo {
-    height: 47px;
+    height: 28px;
+  }
+
+  .header__tag {
+    display: none;
   }
 
   .header__nav {
-    gap: 26px;
-    font-size: 12px;
-    text-transform: uppercase;
+    gap: 4px;
+
+    a {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
   }
 }

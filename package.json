@@ -7,8 +7,9 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "build:pages": "vite build --outDir docs",
     "lint": "eslint .",
+    "test": "vitest run",
+    "verify": "npm run lint && npm test && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,7 +24,9 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "jsdom": "^29.1.1",
     "sass": "^1.97.2",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^4.1.9"
   }
 }

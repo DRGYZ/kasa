@@ -24,11 +24,16 @@ export default function About() {
   return (
     <main className="about">
       <h1 className="visually-hidden">À propos de Kasa</h1>
-      <Banner className="banner--about" image="images/about-banner.jpg" />
+      <Banner className="banner--about" image="about-banner" />
 
-      <div className="about__collapses">
-        {ABOUT_SECTIONS.map((section) => (
-          <Collapse key={section.title} title={section.title}>
+      <div className="about__collapses about-stack">
+        {ABOUT_SECTIONS.map((section, index) => (
+          <Collapse
+            key={section.title}
+            title={section.title}
+            badge="Engagement"
+            defaultOpen={index === 0}
+          >
             <p>{section.content}</p>
           </Collapse>
         ))}

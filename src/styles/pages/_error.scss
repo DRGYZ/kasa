@@ -9,29 +9,68 @@
   text-align: center;
 }
 
+.error__card {
+  width: 100%;
+  max-width: 560px;
+  padding: 40px 32px;
+  background: $bg-surface;
+  border: 1px solid $border;
+  border-radius: $radius-frame;
+  box-shadow: $shadow-card;
+}
+
+.error__eyebrow {
+  margin: 0 0 8px;
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $accent-ink;
+}
+
 .error__code {
   margin: 0;
-  font-size: 220px;
+  font-size: 112px;
+  line-height: 1;
   font-weight: 700;
+  letter-spacing: -0.04em;
   color: $color-primary;
 }
 
 .error__text {
-  margin: 20px 0 30px;
-  font-size: 18px;
+  margin: 16px 0 26px;
+  font-size: 16px;
+  color: $ink-muted;
 }
 
 .error__link {
-  text-decoration: underline;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: $radius-pill;
+  background: $ink;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 140ms ease;
+
+  &:hover {
+    background: $color-primary;
+  }
 }
 
 @media (max-width: 768px) {
+  .error__card {
+    padding: 30px 20px;
+  }
+
   .error__code {
-    font-size: 120px;
+    font-size: 84px;
   }
 
   .error__text {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
