@@ -4,7 +4,7 @@ import Banner from "../components/Banner"
 const ABOUT_SECTIONS = [
   {
     title: "Fiabilité",
-    content: "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.",
+    content: "Ce catalogue de démonstration utilise les données du projet OpenClassrooms. Les photos et les informations des fiches sont présentées à titre d'exemple.",
   },
   {
     title: "Respect",

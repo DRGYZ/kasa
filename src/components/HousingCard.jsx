@@ -44,9 +44,10 @@ export default function HousingCard({
 
         {!isSingle ? (
           <div className="triptych__side">
-            {secondaryIndices.map((picIdx) => (
+            {/* Keep the button slots mounted when their photos change. */}
+            {secondaryIndices.map((picIdx, slotIndex) => (
               <button
-                key={picIdx}
+                key={slotIndex}
                 type="button"
                 className="triptych__thumb"
                 onClick={() => setActivePhotoIndex(picIdx)}

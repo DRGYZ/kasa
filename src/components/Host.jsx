@@ -3,7 +3,7 @@ export default function Host({ name = "", picture = "" }) {
     <div className="host">
       <div className="host__info">
         <p className="host__name">{name}</p>
-        <p className="host__role">Hôte vérifié</p>
+        <p className="host__role">Hôte fictif</p>
       </div>
       {picture ? (
         <img

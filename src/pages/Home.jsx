@@ -27,7 +27,7 @@ export default function Home() {
         className="banner--home"
         eyebrow="Sélection architecturale · Paris"
         title="Chez vous, partout et ailleurs"
-        subtitle="Comparez plusieurs pièces avant d'ouvrir une annonce. 20 adresses vérifiées à Paris et en Île-de-France."
+        subtitle="Comparez plusieurs pièces avant d'ouvrir une fiche. 20 annonces fictives à Paris et en Île-de-France."
       />
 
       <div className="filter-bar">

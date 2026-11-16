@@ -38,7 +38,7 @@ function findButtonByText(selector, label) {
 }
 
 describe("Page d'accueil et comparaison", () => {
-  it("filtre les annonces par secteur et compare les pièces sur la carte", async () => {
+  it("filtre les annonces par secteur", async () => {
     await visit("/")
     expect(container.querySelectorAll(".dir-a-card")).toHaveLength(20)
 
@@ -47,13 +47,22 @@ describe("Page d'accueil et comparaison", () => {
 
     act(() => findButtonByText(".filter-pill", "Tous").click())
     expect(container.querySelectorAll(".dir-a-card")).toHaveLength(20)
+  })
+
+  it("conserve le focus sur le bouton après avoir changé la photo principale", async () => {
+    await visit("/")
 
     const listing = logements.find(({ pictures }) => pictures.length > 1)
-    const firstCardLead = container.querySelector(".dir-a-card .triptych__lead img")
-    expect(firstCardLead.getAttribute("src")).toBe(listing.pictures[0])
+    const thumbnail = galleryButton(`Comparer la photo 2 de ${listing.title}`)
+    const lead = thumbnail.closest(".dir-a-card").querySelector(".triptych__lead img")
+    expect(lead.getAttribute("src")).toBe(listing.pictures[0])
 
-    act(() => galleryButton(`Comparer la photo 2 de ${listing.title}`).click())
-    expect(firstCardLead.getAttribute("src")).toBe(listing.pictures[1])
+    thumbnail.focus()
+    act(() => thumbnail.click())
+
+    expect(lead.getAttribute("src")).toBe(listing.pictures[1])
+    expect(thumbnail.matches(":focus")).toBe(true)
+    expect(thumbnail.getAttribute("aria-label")).toBe(`Comparer la photo 1 de ${listing.title}`)
   })
 })
 

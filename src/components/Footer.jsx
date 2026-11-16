@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__inner">
         <img className="footer__logo" src={assetPath("images/logo.png")} alt="Kasa" />
-        <p className="footer__text">© 2020 Kasa. Tous droits réservés · Locations vérifiées à Paris</p>
+        <p className="footer__text">© 2020 Kasa. Tous droits réservés · Catalogue de démonstration</p>
       </div>
     </footer>
   )
